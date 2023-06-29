@@ -1,20 +1,18 @@
-const roomContainer = document.getElementById("roomContainer");
-
 const rooms = [
   {
     name: "Habitacion Standard",
     price: "$100",
-    image: "../../resources/images/standard.jpg",
+    image: "../resources/images/standard.jpg",
   },
   {
     name: "Habitacion Deluxe",
     price: "$200",
-    image: "../../resources/images/deluxe.jpg",
+    image: "../resources/images/deluxe.jpg",
   },
   {
     name: "Suite",
     price: "$300",
-    image: "../../resources/images/suite.jpg",
+    image: "../resources/images/suite.jpg",
   },
 ];
 
@@ -31,4 +29,9 @@ const roomCards = rooms.map((room) => {
   `;
 });
 
-roomContainer.innerHTML = roomCards.join("");
+const roomContainer = document.getElementById("roomContainer");
+roomContainer.innerHTML = `
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+    ${roomCards.join("")}
+  </div>
+`;
