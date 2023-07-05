@@ -75,7 +75,11 @@
         <h1>Roles</h1>
         <button onClick="roleConditional()">Rol</button>
         <p id="role"></p>
-        <table id="employeesTable" style="display: none">
+        <table
+          id="employeesTable"
+          style="display: none"
+          class="table table-striped"
+        >
           <thead>
             <tr>
               <th>Nombre</th>
@@ -83,10 +87,12 @@
               <th>Edad</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <!-- Aquí se generarán las filas dinámicamente -->
+          </tbody>
         </table>
         <h1>Flujo de caja</h1>
-        <table id="flowTable">
+        <table id="flowTable" class="table table-striped">
           <thead>
             <tr>
               <th>Periodo</th>
@@ -94,8 +100,48 @@
               <th>Egreso</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <!-- Aquí se generarán las filas dinámicamente -->
+          </tbody>
         </table>
+
+        <div class="my-5">
+          <h1>Event Listeners</h1>
+          <p id="colorIs"></p>
+          <button id="btn1" class="btn btn-danger">Rojo</button>
+          <button id="btn2" class="btn btn-primary">Azul</button>
+          <button id="btn3" class="btn btn-success">Verde</button>
+          <button id="btn4" class="btn btn-warning">Amarillo</button>
+        </div>
+        <div class="my-5">
+          <h1>Formulario</h1>
+          <form action="">
+            <div class="form-group">
+              <label for="Nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" />
+              <label for="Nombre">Apellido:</label>
+              <input type="text" class="form-control" id="apellido" />
+              <label for="Nombre">Edad:</label>
+              <input type="text" class="form-control" id="edad" />
+              <button type="button" class="btn btn-primary my-5" id="btnForm">
+                Añadir a la tabla
+              </button>
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                  </tr>
+                </thead>
+                <tbody id="formTableBody">
+                  <!-- Aquí se generarán las filas dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
     <script src="script/exercises.js"></script>

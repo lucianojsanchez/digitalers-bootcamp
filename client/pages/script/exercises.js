@@ -1,4 +1,4 @@
-//-----//
+//-------------------------------------//
 
 const multiplicationTable = () => {
   let table = "";
@@ -13,7 +13,7 @@ const multiplicationTable = () => {
   document.getElementById("tableContainer").innerHTML = table;
 };
 
-//--------------//
+//------------------------------//
 
 const promptUserAlert = () => {
   let name = prompt("Ingresa tu nombre completo");
@@ -45,7 +45,7 @@ const promptUserAlert = () => {
   }
 };
 
-//---------------------//
+//-------------------------------------//
 
 const puntoDeEquilibrio = () => {
   let costoFijo = parseInt(document.getElementById("costosFijos").value);
@@ -59,7 +59,7 @@ const puntoDeEquilibrio = () => {
   alert("Punto de equilibrio: " + result);
 };
 
-//---------------//
+//-------------------------------//
 
 const presupuestoPersonal = () => {
   let numero = parseInt(prompt("Ingresa la cantidad de dinero total"));
@@ -84,7 +84,7 @@ const presupuestoPersonal = () => {
   }
 };
 
-//---------------//
+//-------------------------------//
 
 const roleConditional = () => {
   let rol = prompt("Cual es tu rol?");
@@ -103,7 +103,7 @@ const roleConditional = () => {
   }
 };
 
-//--------------------//
+//------------------------------------//
 
 const employees = () => {
   let employeesArray = [
@@ -128,7 +128,7 @@ const employees = () => {
   }
 };
 
-//------------------------------//
+//----------------------------------------------//
 
 const flow = () => {
   let flowArray = [
@@ -160,8 +160,148 @@ const flow = () => {
     periodoCell.textContent = flow.periodo;
     ingresoCell.textContent = flow.ingreso;
     egresoCell.textContent = flow.egreso;
+
+    if (flow.ingreso > flow.egreso) {
+      periodoCell.classList.add("text-success");
+    } else if (flow.ingreso < flow.egreso) {
+      periodoCell.classList.add("text-danger");
+    } else if (flow.ingreso === flow.egreso) {
+      periodoCell.classList.add("text-warning");
+    }
   }
 };
+
+//-----------------------------------------------//
+
+const intereses = () => {
+  const planesArray = [
+    {
+      nombre: "Plan 001",
+      capital: 150000,
+      plazo: 30,
+      tasa: 0.15,
+    },
+    {
+      nombre: "Plan 002",
+      capital: 300000,
+      plazo: 180,
+      tasa: 0.1,
+    },
+    {
+      nombre: "Plan 003",
+      capital: 485000,
+      plazo: 60,
+      tasa: 0.23,
+    },
+  ];
+
+  let arr = [];
+  for (let i = 0; i < planesArray.length; i++) {
+    let plan = planesArray[i];
+    let interes = (plan.capital * plan.tasa * plan.plazo) / 100;
+    let obj = {
+      nombre: plan.nombre,
+      interes: interes,
+    };
+    arr.push(obj);
+  }
+};
+
+//-------------------------------------------------//
+
+// const btn1 = document.getElementById("btn1");
+// const btn2 = document.getElementById("btn2");
+// const btn3 = document.getElementById("btn3");
+// const btn4 = document.getElementById("btn4");
+
+// const valor1 = btn1.textContent;
+// const valor2 = btn2.textContent;
+// const valor3 = btn3.textContent;
+// const valor4 = btn4.textContent;
+
+// btn1.addEventListener("click", () => {
+//   alert("El boton es de color: " + valor1);
+// });
+// btn2.addEventListener("click", () => {
+//   alert("El boton es de color: " + valor2);
+// });
+// btn3.addEventListener("click", () => {
+//   alert("El boton es de color: " + valor3);
+// });
+// btn4.addEventListener("click", () => {
+//   alert("El boton es de color: " + valor4);
+// });
+
+const buttonIds = ["btn1", "btn2", "btn3", "btn4"];
+const colorIsElement = document.getElementById("colorIs");
+
+for (let i = 0; i < buttonIds.length; i++) {
+  const btn = document.getElementById(buttonIds[i]);
+  const value = btn.textContent.toLowerCase();
+  const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+
+  btn.addEventListener("click", () => {
+    alert("El boton es de color: " + capitalizedValue);
+    colorIsElement.innerHTML = "El color es: " + capitalizedValue;
+
+    colorIsElement.classList.remove(
+      "bg-danger",
+      "bg-success",
+      "bg-primary",
+      "bg-warning"
+    );
+
+    switch (value) {
+      case "rojo":
+        colorIsElement.classList.add("bg-danger");
+        break;
+      case "verde":
+        colorIsElement.classList.add("bg-success");
+        break;
+      case "azul":
+        colorIsElement.classList.add("bg-primary");
+        break;
+      case "amarillo":
+        colorIsElement.classList.add("bg-warning");
+        break;
+      default:
+        alert("Color desconocido");
+        colorIsElement.innerHTML = "Color desconocido";
+        break;
+    }
+  });
+}
+//----------------------------------------------------------------//
+let arr = [];
+
+const formTableBody = document.getElementById("formTableBody");
+
+const formToArray = () => {
+  let name = document.getElementById("nombre").value;
+  let surname = document.getElementById("apellido").value;
+  let age = parseInt(document.getElementById("edad").value);
+
+  let object = {
+    name,
+    surname,
+    age,
+  };
+
+  let newRow = formTableBody.insertRow();
+
+  let nameCell = newRow.insertCell();
+  let surnameCell = newRow.insertCell();
+  let ageCell = newRow.insertCell();
+
+  nameCell.textContent = object.name;
+  surnameCell.textContent = object.surname;
+  ageCell.textContent = object.age;
+};
+
+const button = document.getElementById("btnForm");
+button.addEventListener("click", formToArray);
+
+//-----------------------------//
 
 multiplicationTable();
 flow();
